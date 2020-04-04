@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="productForm" (ngSubmit)="submit()">
+  <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
     <div class="row">
       <div class="col">
         <div class="col-sm-6 col-lg-6">
@@ -22,7 +22,9 @@
             <input id="value" type="number" class="form-control" formControlName="value">
           </div>
         </div>
-        <button type="submit" class="btn bg-danger" [disabled]="productForm.invalid">Cadastrar</button>
+        <button type="submit" class="btn bg-danger" [disabled]="productForm.invalid">
+          {{product?.id ? 'Salvar' : 'Cadastrar'}}
+        </button>
       </div>
     </div>
   </form>
