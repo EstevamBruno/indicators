@@ -1,18 +1,18 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrModule} from 'ngx-toastr';
 
-import { AppRoutingModule } from './app.routing';
+import {AppRoutingModule} from './app.routing';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
 import {CoreModule} from './core-module/core.module';
 import {CommonModule} from '@angular/common';
-import {SalesModule} from './feature-module/sales/sales.module';
+import {FeatureModule} from './feature-module/feature.module';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import {SalesModule} from './feature-module/sales/sales.module';
     NgbModule,
     ToastrModule.forRoot(),
     CommonModule,
-    SalesModule
+    FeatureModule
   ],
   declarations: [
     AppComponent,
@@ -33,4 +33,5 @@ import {SalesModule} from './feature-module/sales/sales.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
