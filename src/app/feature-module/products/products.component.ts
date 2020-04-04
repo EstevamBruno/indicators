@@ -26,4 +26,12 @@ export class ProductsComponent implements OnInit {
       console.log('produto cadastrado com sucesso');
     }, error => console.log(error));
   }
+
+  remove(event) {
+    console.log(event);
+  }
+
+  edit(event) {
+    console.log(event);
+  }
 }

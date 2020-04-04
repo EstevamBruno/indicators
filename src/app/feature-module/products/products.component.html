@@ -7,7 +7,9 @@
     </div>
     <div class="row">
       <div class="col">
-        <app-products-list [products]="products"></app-products-list>
+        <app-products-list [products]="products"
+                           (productEditEventEmitter)="edit($event)"
+                           (productRemoveEventEmitter)="remove($event)"></app-products-list>
       </div>
     </div>
   </div>
