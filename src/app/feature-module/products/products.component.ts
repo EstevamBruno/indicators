@@ -16,7 +16,14 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts() {
+  private getProducts() {
     this.productsService.getProducts().subscribe(product => this.products = product);
+  }
+
+  submit(event) {
+    this.productsService.createProduct(event).subscribe(() => {
+      this.getProducts();
+      console.log('produto cadastrado com sucesso');
+    }, error => console.log(error));
   }
 }
