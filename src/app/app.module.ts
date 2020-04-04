@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 
 import {CoreModule} from './core-module/core.module';
 import {CommonModule} from '@angular/common';
+import {SalesModule} from './feature-module/sales/sales.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import {CommonModule} from '@angular/common';
     NgbModule,
     ToastrModule.forRoot(),
     CommonModule,
+    SalesModule
   ],
   declarations: [
     AppComponent,
