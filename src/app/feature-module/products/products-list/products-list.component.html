@@ -1,3 +1,20 @@
-<p>
-  products-list works!
-</p>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col" *ngFor="let col of cols">
+      {{ col.header }}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <ng-template *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.registerDate | date: 'dd/MM/yy hh:mm:ss'}}</td>
+      <td>{{ product.value | currency: 'BRL': 'RS': '1.2-2' }}</td>
+    </ng-template>
+  </tr>
+  </tbody>
+</table>
