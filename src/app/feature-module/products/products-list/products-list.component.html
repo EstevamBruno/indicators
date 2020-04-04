@@ -4,6 +4,7 @@
     <th scope="col" *ngFor="let col of cols">
       {{ col.header }}
     </th>
+    <th class="center-text">Ações</th>
   </tr>
   </thead>
   <tbody>
@@ -13,6 +14,13 @@
     <td>{{ product.name }}</td>
     <td>{{ product.registerDate | date: 'dd/MM/yy'}}</td>
     <td>{{ product.value | currency: 'BRL': 'RS': '1.2-2' }}</td>
+    <td class="center-text">
+      <span *ngFor="let action of actions" (click)="executeAction(action)" class="actions-table">
+          <span (click)="selectRowWithButton(product)">
+              <i class="{{action.icon}}"></i>
+          </span>
+      </span>
+    </td>
   </tr>
   </tbody>
 </table>
