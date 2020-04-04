@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from '../../shared/domain/product/product';
 import {ProductsService} from '../service/products/products.service';
 
@@ -9,6 +9,7 @@ import {ProductsService} from '../service/products/products.service';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  product: Product;
 
   constructor(private productsService: ProductsService) { }
 
@@ -33,7 +34,21 @@ export class ProductsComponent implements OnInit {
     }, error => console.log(error));
   }
 
+  prepareEdit(event) {
+    this.product = event;
+  }
+
   edit(event) {
-    console.log(event);
+    const index = this.products.findIndex(product => product.id === event.id);
+    this.productsService.edit(event).subscribe(() => {
+      this.products[index] = {
+        id: event.id,
+        code: event.code,
+        name: event.name,
+        registerDate: event.registerDate,
+        value: event.value
+      };
+      alert('produto editado');
+    }, error => console.log(error));
   }
 }
