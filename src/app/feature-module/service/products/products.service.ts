@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {Observable} from 'rxjs';
 import {Product} from '../../../shared/domain/product/product';
@@ -17,5 +17,9 @@ export class ProductsService {
 
   createProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(PRODUTOS, product);
+  }
+
+  delete(product: number) {
+    return this.http.delete(PRODUTOS + `/${product}`);
   }
 }
