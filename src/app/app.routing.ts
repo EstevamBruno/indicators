@@ -1,21 +1,28 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule,} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
+import {SalesComponent} from './feature-module/sales/sales.component';
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: '',
     pathMatch: 'full',
   }, {
     path: '',
-    component: AppComponent
+    component: AppComponent,
+    children: [
+      {
+        path: 'vendas',
+        component: SalesComponent
+      }
+    ]
   },
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: ''
   }
 ];
 
@@ -25,7 +32,7 @@ const routes: Routes =[
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [
-  ],
+  exports: [],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
