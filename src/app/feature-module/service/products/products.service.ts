@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
+import {Observable} from 'rxjs';
+import {Product} from '../../../shared/domain/product/product';
 
 const PRODUTOS = `${environment.JSON_SERVER}/produtos`;
 
@@ -8,4 +10,8 @@ const PRODUTOS = `${environment.JSON_SERVER}/produtos`;
 export class ProductsService {
 
   constructor(private http: HttpClient) { }
+
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(PRODUTOS);
+  }
 }
