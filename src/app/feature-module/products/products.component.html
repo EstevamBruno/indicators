@@ -1,7 +1,12 @@
 <div style="margin-top: 60px">
   <div class="container">
     <div class="row">
-      <div class="col-sm">
+      <div class="col">
+        <app-products-form (productEventEmitter)="submit($event)"></app-products-form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
         <app-products-list [products]="products"></app-products-list>
       </div>
     </div>
