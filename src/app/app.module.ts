@@ -10,8 +10,8 @@ import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {CoreModule} from './core-module/core.module';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
@@ -22,12 +22,11 @@ import {CoreModule} from './core-module/core.module';
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CommonModule,
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
-
   ],
   providers: [],
   bootstrap: [AppComponent]
