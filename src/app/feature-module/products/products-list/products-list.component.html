@@ -7,14 +7,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <ng-template *ngFor="let product of products">
-      <td>{{ product.id }}</td>
-      <td>{{ product.code }}</td>
-      <td>{{ product.name }}</td>
-      <td>{{ product.registerDate | date: 'dd/MM/yy hh:mm:ss'}}</td>
-      <td>{{ product.value | currency: 'BRL': 'RS': '1.2-2' }}</td>
-    </ng-template>
+  <tr *ngFor="let product of products">
+    <td>{{ product.id }}</td>
+    <td>{{ product.code }}</td>
+    <td>{{ product.name }}</td>
+    <td>{{ product.registerDate | date: 'dd/MM/yy'}}</td>
+    <td>{{ product.value | currency: 'BRL': 'RS': '1.2-2' }}</td>
   </tr>
   </tbody>
 </table>
