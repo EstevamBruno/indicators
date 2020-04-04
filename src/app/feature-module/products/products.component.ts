@@ -23,14 +23,13 @@ export class ProductsComponent implements OnInit {
   submit(event) {
     this.productsService.createProduct(event).subscribe(() => {
       this.getProducts();
-      console.log('produto cadastrado com sucesso');
     }, error => console.log(error));
   }
 
   delete(event) {
-    console.log(event);
+    const products = this.products.filter(product => product.id !== event.id);
     this.productsService.delete(event.id).subscribe(() => {
-      alert('ok');
+      this.products = products;
     }, error => console.log(error));
   }
 
