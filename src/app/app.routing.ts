@@ -1,9 +1,11 @@
 import {NgModule} from '@angular/core';
-import {CommonModule,} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
 import {SalesComponent} from './feature-module/sales/sales.component';
+import {ProductsComponent} from './feature-module/products/products.component';
+import {SalesIndicatorsComponent} from './feature-module/sales-indicators/sales-indicators.component';
 
 const routes: Routes = [
   {
@@ -15,8 +17,16 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       {
-        path: 'vendas',
+        path: 'produtos',
+        component: ProductsComponent
+      },
+      {
+        path: 'cadastrar-vendas',
         component: SalesComponent
+      },
+      {
+        path: 'indicadores',
+        component: SalesIndicatorsComponent
       }
     ]
   },
