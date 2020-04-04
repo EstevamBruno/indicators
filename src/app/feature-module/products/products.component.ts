@@ -27,8 +27,11 @@ export class ProductsComponent implements OnInit {
     }, error => console.log(error));
   }
 
-  remove(event) {
+  delete(event) {
     console.log(event);
+    this.productsService.delete(event.id).subscribe(() => {
+      alert('ok');
+    }, error => console.log(error));
   }
 
   edit(event) {
