@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  JSON_SERVER: 'http://localhost:3000/'
+  JSON_SERVER: 'http://localhost:3000'
 };
