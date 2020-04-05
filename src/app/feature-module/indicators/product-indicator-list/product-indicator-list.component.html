@@ -1,0 +1,31 @@
+<h3>Indicadores</h3>
+
+<p>Registro de produtos por data</p>
+<div class="row">
+  <div class="col-6">
+    <div class="row">
+      <div class="col-2">
+        <button type="button" class="btn bg-danger" (click)="generateIndicators()">Gerar</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn bg-danger" (click)="ordenateQuantity()">Ordenar Quant.</button>
+      </div>
+    </div>
+    <app-register-date-table [registerDateIndicatorProduct]="registerDateIndicatorProduct"></app-register-date-table>
+  </div>
+  <div class="col-6">
+    <form [formGroup]="filterForm" (ngSubmit)="filter()">
+      <div class="row filter-form">
+        <div class="col-8">
+          <div class="form-group">
+            <input type="date" class="form-control" formControlName="date">
+          </div>
+        </div>
+        <div class="col-4">
+          <button type="submit" class="btn bg-danger" [disabled]="filterForm.invalid">Filtrar</button>
+        </div>
+      </div>
+    </form>
+    <app-product-register-table [productsByDate]="productsByDate"></app-product-register-table>
+  </div>
+</div>
