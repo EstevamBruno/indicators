@@ -6,11 +6,11 @@ import {ProductsService} from '../service/products/products.service';
 import {DateIndicator} from '../../shared/domain/date-indicator/date-indicator';
 
 @Component({
-  selector: 'app-sales-indicators',
-  templateUrl: './sales-indicators.component.html',
-  styleUrls: ['./sales-indicators.component.scss']
+  selector: 'app-indicators',
+  templateUrl: './indicators.component.html',
+  styleUrls: ['./indicators.component.scss']
 })
-export class SalesIndicatorsComponent implements OnInit {
+export class IndicatorsComponent implements OnInit {
   sales: Sale[] = [];
   products: Product[] = [];
   registerDateIndicatorProduct: DateIndicator[];

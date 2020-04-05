@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ProductsModule} from './products/products.module';
 import {SalesModule} from './sales/sales.module';
-import {SalesIndicatorsModule} from './sales-indicators/sales-indicators.module';
+import {IndicatorsModule} from './indicators/indicators.module';
 
 @NgModule({
   declarations: [],
@@ -10,7 +10,7 @@ import {SalesIndicatorsModule} from './sales-indicators/sales-indicators.module'
     CommonModule,
     SalesModule,
     ProductsModule,
-    SalesIndicatorsModule
+    IndicatorsModule
   ]
 })
 export class FeatureModule { }

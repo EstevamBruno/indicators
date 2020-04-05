@@ -5,7 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
 import {SalesComponent} from './feature-module/sales/sales.component';
 import {ProductsComponent} from './feature-module/products/products.component';
-import {SalesIndicatorsComponent} from './feature-module/sales-indicators/sales-indicators.component';
+import {IndicatorsComponent} from './feature-module/indicators/indicators.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'indicadores',
-        component: SalesIndicatorsComponent
+        component: IndicatorsComponent
       }
     ]
   },
