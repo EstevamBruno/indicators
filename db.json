@@ -1,10 +1,56 @@
 {
-  "produtos": [],
+  "produtos": [
+    {
+      "id": 1,
+      "code": "3354",
+      "name": "caneta",
+      "registerDate": "2020-04-05",
+      "value": 54
+    },
+    {
+      "id": 2,
+      "code": "6548",
+      "name": "camisa",
+      "registerDate": "2020-04-05",
+      "value": 698
+    },
+    {
+      "id": 3,
+      "code": "5558",
+      "name": "caderno",
+      "registerDate": "2020-04-04",
+      "value": 4
+    },
+    {
+      "id": 4,
+      "code": "3525",
+      "name": "teclado",
+      "registerDate": "2020-04-04",
+      "value": 75
+    },
+    {
+      "id": 5,
+      "code": "6986",
+      "name": "mouse",
+      "registerDate": "2020-04-04",
+      "value": 89
+    }
+  ],
   "vendas": [
     {
       "id": 1,
       "productCode": "3652",
       "date": "2020-04-16"
+    },
+    {
+      "id": 2,
+      "productCode": "6984",
+      "date": "2020-04-05"
+    },
+    {
+      "id": 3,
+      "productCode": "5874",
+      "date": "2020-04-05"
     }
   ]
 }
