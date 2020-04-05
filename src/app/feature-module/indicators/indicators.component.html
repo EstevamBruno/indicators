@@ -1,3 +1,16 @@
-<p style="margin-top: 60px">
-  sales-indicators works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-product-indicator-list [productsByDate]="productsByDate"
+                                  [registerDateIndicatorProduct]="registerDateIndicatorProduct"
+                                  (generateIndicatorsEventEmitter)="executeIndicatorProductByRegisterDate()"
+                                  (filterProductByDateEventEmitter)="prepareProductsByDate($event)">
+      </app-product-indicator-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+</div>
