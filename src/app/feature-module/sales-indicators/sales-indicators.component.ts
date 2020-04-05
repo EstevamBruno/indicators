@@ -3,6 +3,7 @@ import {Product} from '../../shared/domain/product/product';
 import {Sale} from '../../shared/domain/sales/sale';
 import {SalesService} from '../service/sales/sales.service';
 import {ProductsService} from '../service/products/products.service';
+import {DateIndicator} from '../../shared/domain/date-indicator/date-indicator';
 
 @Component({
   selector: 'app-sales-indicators',
@@ -12,6 +13,10 @@ import {ProductsService} from '../service/products/products.service';
 export class SalesIndicatorsComponent implements OnInit {
   sales: Sale[] = [];
   products: Product[] = [];
+  registerDateIndicatorProduct: DateIndicator[];
+  registerDateIndicatorSale: DateIndicator[];
+  productsByDate: Product[] = [];
+  salesByDate: Sale[] = [];
 
   constructor(private salesService: SalesService,
               private productsService: ProductsService) {
@@ -24,16 +29,76 @@ export class SalesIndicatorsComponent implements OnInit {
 
   private getSales() {
     this.salesService.getSales().subscribe(sales => {
-      console.log(sales);
       this.sales = sales;
     }, error => console.log(error));
   }
 
   private getProducts() {
     this.productsService.getProducts().subscribe(products => {
-      console.log(products);
       this.products = products;
     }, error => console.log(error));
+  }
+
+  private indicatorProductByRegisterDate(products: Product[]) {
+    this.registerDateIndicatorProduct = [];
+    const productRegisterDateSet = new Set();
+    products.map(product => productRegisterDateSet.add(product.registerDate));
+
+    const productsList = [];
+    productRegisterDateSet.forEach(dates => productsList.push(dates));
+
+    this.registerDateIndicatorProduct = productsList.map((registerDate: Date) => {
+      const data = {
+        date: registerDate,
+        quantity: 0
+      };
+      products.map(product => {
+        if (registerDate === product.registerDate) {
+          data.quantity++;
+        }
+      });
+      return data as DateIndicator;
+    });
+    console.log(this.registerDateIndicatorProduct);
+  }
+
+  private indicatorSaleByRegisterDate(sales: Sale[]) {
+    this.registerDateIndicatorSale = [];
+    const salesDateSet = new Set();
+    sales.map(sale => salesDateSet.add(sale.date));
+
+    const salesList = [];
+    salesDateSet.forEach(date => salesList.push(date));
+
+    this.registerDateIndicatorSale = salesList.map(date => {
+      const data = {
+        date: date,
+        quantity: 0
+      };
+      sales.map(sale => {
+        if (date === sale.date) {
+          data.quantity++;
+        }
+      });
+      return data as DateIndicator;
+    });
+    console.log(this.registerDateIndicatorSale);
+  }
+
+  prepareProductsByDate(date: Date) {
+    this.productsByDate = this.products.filter(product => product.registerDate === date);
+  }
+
+  prepareSalesByDate(date: Date) {
+    this.salesByDate = this.sales.filter(sale => sale.date === date);
+  }
+
+  private teste() {
+    this.indicatorProductByRegisterDate(this.products);
+  }
+
+  private testeee() {
+    this.indicatorSaleByRegisterDate(this.sales);
   }
 
 }
