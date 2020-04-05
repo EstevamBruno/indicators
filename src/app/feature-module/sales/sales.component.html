@@ -1,3 +1,12 @@
-<p style="margin-top: 60px">
-  sales works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-sales-form (saleEventEmitter)="submit($event)"></app-sales-form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-sales-list [sales]="sales"></app-sales-list>
+    </div>
+  </div>
+</div>
