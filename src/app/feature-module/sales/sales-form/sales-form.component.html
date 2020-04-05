@@ -1,3 +1,22 @@
-<p>
-  sales-form works!
-</p>
+<h3>Cadastro de Vendas</h3>
+<div class="container">
+  <form [formGroup]="saleForm" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col">
+        <div class="col-sm-6 col-lg-6">
+          <div class="form-group">
+            <label for="code">Código do Produto</label>
+            <input id="code" type="text" class="form-control" formControlName="productCode">
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-6">
+          <div class="form-group">
+            <label for="registerDate">Data de Registro</label>
+            <input id="registerDate" type="date" class="form-control" formControlName="date">
+          </div>
+          <button type="submit" class="btn bg-danger" [disabled]="saleForm.invalid">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
