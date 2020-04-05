@@ -1,4 +1,10 @@
 {
   "produtos": [],
-  "vendas": []
+  "vendas": [
+    {
+      "id": 1,
+      "productCode": "3652",
+      "date": "2020-04-16"
+    }
+  ]
 }
