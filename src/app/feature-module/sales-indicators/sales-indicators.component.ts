@@ -93,12 +93,4 @@ export class SalesIndicatorsComponent implements OnInit {
     this.salesByDate = this.sales.filter(sale => sale.date === date);
   }
 
-  private teste() {
-    this.indicatorProductByRegisterDate(this.products);
-  }
-
-  private testeee() {
-    this.indicatorSaleByRegisterDate(this.sales);
-  }
-
 }
