@@ -4,11 +4,13 @@ import {SalesComponent} from './sales.component';
 import {SalesService} from '../service/sales/sales.service';
 import { SalesListComponent } from './sales-list/sales-list.component';
 import { SalesFormComponent } from './sales-form/sales-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [SalesComponent, SalesListComponent, SalesFormComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [SalesService]
 })
