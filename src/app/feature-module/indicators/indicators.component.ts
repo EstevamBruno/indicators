@@ -59,7 +59,10 @@ export class IndicatorsComponent implements OnInit {
       });
       return data as DateIndicator;
     });
-    console.log(this.registerDateIndicatorProduct);
+  }
+
+  private executeIndicatorProductByRegisterDate() {
+    this.indicatorProductByRegisterDate(this.products);
   }
 
   private indicatorSaleByRegisterDate(sales: Sale[]) {
@@ -85,7 +88,7 @@ export class IndicatorsComponent implements OnInit {
     console.log(this.registerDateIndicatorSale);
   }
 
-  prepareProductsByDate(date: Date) {
+  prepareProductsByDate(date) {
     this.productsByDate = this.products.filter(product => product.registerDate === date);
   }
 
