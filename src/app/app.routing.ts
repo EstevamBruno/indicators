@@ -10,7 +10,7 @@ import {SalesIndicatorsComponent} from './feature-module/sales-indicators/sales-
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'produtos',
     pathMatch: 'full',
   }, {
     path: '',
