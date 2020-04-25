@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <app-sales-list [sales]="sales"></app-sales-list>
+      <app-sales-list [sales]="sales" (saleEventEmitter)="delete($event)"></app-sales-list>
     </div>
   </div>
 </div>

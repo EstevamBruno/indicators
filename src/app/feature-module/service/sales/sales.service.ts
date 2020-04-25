@@ -19,4 +19,8 @@ export class SalesService {
   getSales(): Observable<Sale[]> {
     return this.http.get<Sale[]>(VENDAS);
   }
+
+  deleteSale(saleId: Number): Observable<Sale[]> {
+    return this.http.delete<Sale[]>(`${VENDAS}/${saleId}`);
+  }
 }

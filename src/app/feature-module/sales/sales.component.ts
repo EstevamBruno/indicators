@@ -23,10 +23,17 @@ export class SalesComponent implements OnInit {
     }, error => console.log(error));
   }
 
-  submit(event) {
+  private submit(event) {
     this.salesService.createSale(event).subscribe(() => {
       alert('venda criada com sucesso');
       this.getSales();
+    }, error => console.log(error));
+  }
+
+  private delete(event) {
+    this.salesService.deleteSale(event.id).subscribe(() => {
+      alert('venda excluída com sucesso');
+      this.sales = this.sales.filter(sale => sale.id !== event.id);
     }, error => console.log(error));
   }
 }
