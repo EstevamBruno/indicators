@@ -12,6 +12,7 @@ export class ProductsFormComponent implements OnInit, OnChanges {
   @Output() productEditEventEmitter = new EventEmitter();
   @Input() product: Product;
   productForm: FormGroup;
+  validationField: boolean;
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -34,11 +35,16 @@ export class ProductsFormComponent implements OnInit, OnChanges {
       code: [null, [Validators.required]],
       name: [null, [Validators.required]],
       registerDate: [null, [Validators.required]],
-      value: [null, [Validators.required]]
+      value: [null, [Validators.required, Validators.min(0)]]
     });
   }
 
   private submit() {
+    this.validationField = true;
+    if (this.validationField && this.productForm.invalid) {
+      return;
+    }
+    this.validationField = false;
     const product = this.productForm.getRawValue();
     this.productEventEmitter.emit(product);
     this.productForm.reset();
@@ -57,6 +63,11 @@ export class ProductsFormComponent implements OnInit, OnChanges {
   private edit() {
     const product = this.productForm.getRawValue();
     this.productEditEventEmitter.emit(product);
+    this.clearEdit();
+  }
+
+  private clearEdit() {
+    this.product = null;
     this.productForm.reset();
   }
 

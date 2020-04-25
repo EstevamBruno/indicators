@@ -2,29 +2,38 @@
 <div class="container">
   <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
     <div class="row">
-      <div class="col">
-        <div class="col-sm-6 col-lg-6">
+        <div class="col-sm-12 col-lg-4">
           <div class="form-group">
             <label for="code">Código</label>
             <input id="code" type="text" class="form-control" formControlName="code">
+            <small *ngIf="validationField && productForm.get('code').invalid">Código é obrigatório!</small>
           </div>
           <div class="form-group">
             <label for="name">Nome</label>
             <input id="name" type="text" class="form-control" formControlName="name">
+            <small *ngIf="validationField && productForm.get('name').invalid">Nome é obrigatório!</small>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-6">
+        <div class="col-sm-12 col-lg-4">
           <div class="form-group">
             <label for="registerDate">Data de Registro</label>
             <input id="registerDate" type="date" class="form-control" formControlName="registerDate">
+            <small *ngIf="validationField && productForm.get('registerDate').invalid">Data de Registro é obrigatório!</small>
           </div>
           <div class="form-group">
             <label for="value">Preço</label>
             <input id="value" type="number" class="form-control" formControlName="value">
+            <small *ngIf="validationField && productForm.get('value').invalid">Preço é obrigatório!</small>
           </div>
         </div>
-        <button type="submit" class="btn bg-danger" [disabled]="productForm.invalid">
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <button type="submit" class="btn bg-danger">
           {{product?.id ? 'Salvar' : 'Cadastrar'}}
+        </button>
+        <button *ngIf="product" type="button" class="btn bg-secondary" (click)="clearEdit()">
+          Cancelar
         </button>
       </div>
     </div>
