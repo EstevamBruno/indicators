@@ -9,6 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class SalesFormComponent implements OnInit {
   @Output() saleEventEmitter = new EventEmitter();
   saleForm: FormGroup;
+  validateField: boolean;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -25,6 +26,11 @@ export class SalesFormComponent implements OnInit {
   }
 
   private submit() {
+    this.validateField = true;
+    if (this.validateField && this.saleForm.invalid) {
+      return;
+    }
+    this.validateField = false;
     const sale = this.saleForm.getRawValue();
     this.saleEventEmitter.emit(sale);
     this.saleForm.reset();

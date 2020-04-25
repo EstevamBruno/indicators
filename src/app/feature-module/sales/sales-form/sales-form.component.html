@@ -3,18 +3,20 @@
   <form [formGroup]="saleForm" (ngSubmit)="submit()">
     <div class="row">
       <div class="col">
-        <div class="col-sm-6 col-lg-6">
+        <div class="col-sm-12 col-lg-4">
           <div class="form-group">
             <label for="code">Código do Produto</label>
             <input id="code" type="text" class="form-control" formControlName="productCode">
+            <small *ngIf="validateField && saleForm.get('productCode').invalid">Código do Produto obrigatório!</small>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-6">
+        <div class="col-sm-12 col-lg-4">
           <div class="form-group">
             <label for="registerDate">Data de Registro</label>
             <input id="registerDate" type="date" class="form-control" formControlName="date">
+            <small *ngIf="validateField && saleForm.get('date').invalid">Data de Regostro obrigatória!</small>
           </div>
-          <button type="submit" class="btn bg-danger" [disabled]="saleForm.invalid">Cadastrar</button>
+          <button type="submit" class="btn bg-danger">Cadastrar</button>
         </div>
       </div>
     </div>
