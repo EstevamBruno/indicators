@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <app-product-indicator-list [productsByDate]="productsByDate"
                                   [registerDateIndicatorProduct]="registerDateIndicatorProduct"
                                   (generateIndicatorsEventEmitter)="executeIndicatorProductByRegisterDate()"
@@ -9,8 +9,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-
+    <div class="col-12">
+      <app-sale-indicator-list [salesByDate]="salesByDate"
+                               [registerDateIndicatorSale]="registerDateIndicatorSale"
+                               (generateIndicatorsEventEmitter)="executeIndicatorSalesByRegisterDate()"
+                               (filterSaleByDateEventEmitter)="prepareSalesByDate($event)">
+      </app-sale-indicator-list>
     </div>
   </div>
 </div>

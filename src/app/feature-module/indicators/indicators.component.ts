@@ -65,6 +65,10 @@ export class IndicatorsComponent implements OnInit {
     this.indicatorProductByRegisterDate(this.products);
   }
 
+  private executeIndicatorSalesByRegisterDate() {
+    this.indicatorSaleByRegisterDate(this.sales);
+  }
+
   private indicatorSaleByRegisterDate(sales: Sale[]) {
     this.registerDateIndicatorSale = [];
     const salesDateSet = new Set();
@@ -85,14 +89,13 @@ export class IndicatorsComponent implements OnInit {
       });
       return data as DateIndicator;
     });
-    console.log(this.registerDateIndicatorSale);
   }
 
   prepareProductsByDate(date) {
     this.productsByDate = this.products.filter(product => product.registerDate === date);
   }
 
-  prepareSalesByDate(date: Date) {
+  prepareSalesByDate(date) {
     this.salesByDate = this.sales.filter(sale => sale.date === date);
   }
 
