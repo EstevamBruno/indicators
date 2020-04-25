@@ -34,6 +34,13 @@
       "name": "mouse",
       "registerDate": "2020-04-04",
       "value": 89
+    },
+    {
+      "id": 6,
+      "code": "7548",
+      "name": "teste",
+      "registerDate": "2020-04-21",
+      "value": 8956
     }
   ],
   "vendas": [

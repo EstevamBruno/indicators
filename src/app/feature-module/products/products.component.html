@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <app-products-form (productEventEmitter)="submit($event)"
                          (productEditEventEmitter)="edit($event)"
                          [product]="product"></app-products-form>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <app-products-list [products]="products"
                          (productEditEventEmitter)="prepareEdit($event)"
                          (productRemoveEventEmitter)="delete($event)"></app-products-list>

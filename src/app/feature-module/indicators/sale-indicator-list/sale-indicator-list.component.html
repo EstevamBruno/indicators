@@ -1,3 +1,29 @@
-<p>
-  sale-indicator-list works!
-</p>
+<p>Registro de vendas por data</p>
+<div class="row">
+  <div class="col-6">
+    <div class="row">
+      <div class="col-2">
+        <button type="button" class="btn bg-danger" (click)="generateIndicators()">Gerar</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn bg-danger">Ordenar Quant.</button>
+      </div>
+    </div>
+    <app-sale-register-table [registerDateIndicatorSale]="registerDateIndicatorSale"></app-sale-register-table>
+  </div>
+  <div class="col-6">
+    <form [formGroup]="filterForm" (ngSubmit)="filter()">
+      <div class="row filter-form">
+        <div class="col-8">
+          <div class="form-group">
+            <input type="date" class="form-control" formControlName="date">
+          </div>
+        </div>
+        <div class="col-4">
+          <button type="submit" class="btn bg-danger" [disabled]="filterForm.invalid">Filtrar</button>
+        </div>
+      </div>
+    </form>
+    <app-sale-register-date-table [sales]="salesByDate"></app-sale-register-date-table>
+  </div>
+</div>

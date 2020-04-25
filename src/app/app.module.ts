@@ -28,7 +28,7 @@ import {FeatureModule} from './feature-module/feature.module';
     FeatureModule
   ],
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

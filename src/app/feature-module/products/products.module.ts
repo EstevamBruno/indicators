@@ -10,7 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
   declarations: [ProductsComponent, ProductsListComponent, ProductsFormComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductsService]
 })
